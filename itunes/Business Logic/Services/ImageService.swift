@@ -8,13 +8,15 @@
 
 import UIKit
 
-typealias ImageServiceCompletionHandler = (image: UIImage) -> Void
+typealias ImageServiceCompletionHandler = (image: UIImage, fromCache: Bool) -> Void
 typealias ImageServiceErrorHandler      = (error: NSError) -> Void
+
+let aError = NSError(domain: "", code: -1, userInfo: nil)
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 protocol ImageServiceProtocol: class {
-    func fetchImage(imageURL: NSURL, completionHandler: ImageServiceCompletionHandler, errorHandler: ImageServiceErrorHandler)
+    func fetchImage(imageURL: NSURL, completionHandler: ImageServiceCompletionHandler, errorHandler: ImageServiceErrorHandler?)
     func cancelImage(imageURL: NSURL)
     func cancelAllImages()
 }
@@ -47,12 +49,12 @@ class ImageService: ImageServiceProtocol {
 
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
-    func fetchImage(imageURL: NSURL, completionHandler: ImageServiceCompletionHandler, errorHandler: ImageServiceErrorHandler) {
+    func fetchImage(imageURL: NSURL, completionHandler: ImageServiceCompletionHandler, errorHandler: ImageServiceErrorHandler?) {
         let imageKey = imageURL.absoluteString
         
         // Check Image Cache
         if let image = self.imageCache.objectForKey(imageKey) as? UIImage {
-            completionHandler(image: image);
+            completionHandler(image: image, fromCache: true);
             return
         }
         
@@ -61,17 +63,16 @@ class ImageService: ImageServiceProtocol {
             // Check for error
             if let error = error {
                 dispatch_async(dispatch_get_main_queue(), { () in
-                    errorHandler(error: error);
+                    errorHandler?(error: error);
                 })
                 return
             }
             
             // Check to ensure we have data
-            let aError = NSError(domain: "", code: -1, userInfo: nil)
             guard let data = data
                 else {
                 dispatch_async(dispatch_get_main_queue(), { () in
-                    errorHandler(error: aError);
+                    errorHandler?(error: aError);
                 })
                 return
             }
@@ -81,12 +82,12 @@ class ImageService: ImageServiceProtocol {
                 self.imageCache.setObject(image, forKey: imageKey)
                 
                 dispatch_async(dispatch_get_main_queue(), { () in
-                   completionHandler(image: image)
+                   completionHandler(image: image, fromCache: false)
                 })
             }
             else {
                 dispatch_async(dispatch_get_main_queue(), { () in
-                    errorHandler(error: aError)
+                    errorHandler?(error: aError)
                 })
             }
         }
@@ -109,11 +110,5 @@ class ImageService: ImageServiceProtocol {
     ////////////////////////////////////////////////////////////////////////////////
     func cancelAllImages() {
         self.queue.cancelAllOperations()
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////
-    class func dispatch(block: dispatch_block_t) {
-        block()
     }
 }

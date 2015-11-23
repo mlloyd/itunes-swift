@@ -51,25 +51,44 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kSearchCell" textLabel="bQI-5H-56t" style="IBUITableViewCellStyleDefault" id="oED-fM-8qQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kSearchCell" id="oED-fM-8qQ" customClass="SongTableViewCell" customModule="itunes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oED-fM-8qQ" id="rCK-iK-KUx">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bQI-5H-56t">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IaW-ZZ-Zzy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="43" id="mlB-HY-cD1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNH-mq-k7E">
+                                                    <rect key="frame" x="46" y="8" width="506" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstItem="IaW-ZZ-Zzy" firstAttribute="leading" secondItem="rCK-iK-KUx" secondAttribute="leadingMargin" constant="-8" id="C1b-oy-L2M"/>
+                                                <constraint firstItem="IaW-ZZ-Zzy" firstAttribute="top" secondItem="rCK-iK-KUx" secondAttribute="topMargin" constant="-8" id="KRb-oG-t3b"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fNH-mq-k7E" secondAttribute="trailing" constant="40" id="MNE-DW-nkg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fNH-mq-k7E" secondAttribute="bottom" constant="6" id="UQW-Wb-WLZ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IaW-ZZ-Zzy" secondAttribute="bottom" constant="-8" id="V1y-Rv-gzX"/>
+                                                <constraint firstAttribute="topMargin" secondItem="fNH-mq-k7E" secondAttribute="top" id="lQR-YV-iVb"/>
+                                                <constraint firstItem="fNH-mq-k7E" firstAttribute="leading" secondItem="IaW-ZZ-Zzy" secondAttribute="trailing" constant="3" id="oDG-fk-XC8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="coverImage" destination="IaW-ZZ-Zzy" id="O4n-5E-cz1"/>
+                                            <outlet property="songTitle" destination="fNH-mq-k7E" id="JpZ-31-g4y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

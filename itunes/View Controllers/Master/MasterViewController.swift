@@ -24,15 +24,6 @@ class MasterViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = NSLocalizedString("iTunes Search", comment: "")
-        
-        self.itunesService?.fetchSearch("Feeder",
-            completionHandler: { (searchResult) in
-                self.dataSource = searchResult
-                self.tableView.reloadData()
-            },
-            errorHandler: { (error) in
-                
-        })
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -68,20 +59,24 @@ extension MasterViewController: UITableViewDataSource {
     ////////////////////////////////////////////////////////////////////////////////
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         guard let song = self.dataSource?[indexPath.row] else { return }
+        guard let songCell = cell as? SongTableViewCell else { fatalError("Expecting Song Table View Cell") }
         
-        cell.textLabel?.text = song.trackName
-        cell.imageView?.contentMode = .ScaleAspectFit
+        songCell.songTitle?.text = song.trackName
         
         guard let imageURL = song.imageURL else { return }
         self.imageService?.fetchImage(imageURL,
-            completionHandler: { (image) in
-
-                cell.imageView?.image = image
-                cell.setNeedsLayout()
-
-            }, errorHandler: { (error) in
-                print(imageURL)
-        })
+            completionHandler: { (image, fromCache) in
+                if(fromCache == true) {
+                    songCell.coverImage?.image = image
+                }
+                else {
+                    songCell.coverImage?.alpha = 0.0
+                    songCell.coverImage?.image = image
+                    UIView.animateWithDuration(0.3, animations: { () in
+                        songCell.coverImage?.alpha = 1.0
+                    })
+                }
+            }, errorHandler: nil)
     }
     
     ////////////////////////////////////////////////////////////////////////////////
@@ -95,5 +90,20 @@ extension MasterViewController: UITableViewDataSource {
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 extension MasterViewController: UISearchBarDelegate {
-    
+
+    ////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+        
+        guard let searchText = searchBar.text else { return }
+        
+        self.itunesService?.fetchSearch(searchText,
+            completionHandler: { (searchResult) in
+                self.dataSource = searchResult
+                self.tableView.reloadData()
+        },
+        errorHandler: { (error) in })
+    }
 }

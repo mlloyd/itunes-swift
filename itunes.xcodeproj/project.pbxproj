@@ -11,6 +11,7 @@
 		C166E7ED1C031B4B00C821E6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166E7EC1C031B4B00C821E6 /* DetailViewController.swift */; };
 		C166E7EF1C03288100C821E6 /* SongSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166E7EE1C03288100C821E6 /* SongSearchAPI.swift */; };
 		C166E7F11C033C3E00C821E6 /* URLSessionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166E7F01C033C3E00C821E6 /* URLSessionOperation.swift */; };
+		C166E7F31C035E2F00C821E6 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166E7F21C035E2F00C821E6 /* SongTableViewCell.swift */; };
 		C1966C5F1C01ED9C00511934 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1966C4D1C01ED9C00511934 /* AppDelegate.swift */; };
 		C1966C601C01ED9C00511934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1966C531C01ED9C00511934 /* Assets.xcassets */; };
 		C1966C611C01ED9C00511934 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1966C541C01ED9C00511934 /* LaunchScreen.storyboard */; };
@@ -30,6 +31,7 @@
 		C166E7EC1C031B4B00C821E6 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C166E7EE1C03288100C821E6 /* SongSearchAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongSearchAPI.swift; sourceTree = "<group>"; };
 		C166E7F01C033C3E00C821E6 /* URLSessionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionOperation.swift; sourceTree = "<group>"; };
+		C166E7F21C035E2F00C821E6 /* SongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		C1966C1D1C00977700511934 /* itunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1966C4D1C01ED9C00511934 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1966C531C01ED9C00511934 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		C1966C5A1C01ED9C00511934 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C166E7F21C035E2F00C821E6 /* SongTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C166E7F31C035E2F00C821E6 /* SongTableViewCell.swift in Sources */,
 				C166E7ED1C031B4B00C821E6 /* DetailViewController.swift in Sources */,
 				C166E7EF1C03288100C821E6 /* SongSearchAPI.swift in Sources */,
 				C1966C741C01EEE500511934 /* MasterViewController.swift in Sources */,
