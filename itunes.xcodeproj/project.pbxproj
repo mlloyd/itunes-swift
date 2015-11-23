@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3C90532C939DA35784686546 /* Pods_itunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE07182518C15D3F43B9DD25 /* Pods_itunes.framework */; };
+		C166E7ED1C031B4B00C821E6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166E7EC1C031B4B00C821E6 /* DetailViewController.swift */; };
+		C166E7EF1C03288100C821E6 /* SongSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166E7EE1C03288100C821E6 /* SongSearchAPI.swift */; };
+		C166E7F11C033C3E00C821E6 /* URLSessionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166E7F01C033C3E00C821E6 /* URLSessionOperation.swift */; };
 		C1966C5F1C01ED9C00511934 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1966C4D1C01ED9C00511934 /* AppDelegate.swift */; };
 		C1966C601C01ED9C00511934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1966C531C01ED9C00511934 /* Assets.xcassets */; };
 		C1966C611C01ED9C00511934 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1966C541C01ED9C00511934 /* LaunchScreen.storyboard */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		2C80F4D450EE328622C3C95E /* Pods-itunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes.release.xcconfig"; path = "Pods/Target Support Files/Pods-itunes/Pods-itunes.release.xcconfig"; sourceTree = "<group>"; };
 		7625E9F9BC3160DFFCD84C3A /* Pods-itunes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-itunes/Pods-itunes.debug.xcconfig"; sourceTree = "<group>"; };
+		C166E7EC1C031B4B00C821E6 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C166E7EE1C03288100C821E6 /* SongSearchAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongSearchAPI.swift; sourceTree = "<group>"; };
+		C166E7F01C033C3E00C821E6 /* URLSessionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionOperation.swift; sourceTree = "<group>"; };
 		C1966C1D1C00977700511934 /* itunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1966C4D1C01ED9C00511934 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1966C531C01ED9C00511934 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				C1966C691C01EE7900511934 /* Song.swift */,
+				C166E7EE1C03288100C821E6 /* SongSearchAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				C1966C6B1C01EE9100511934 /* ItunesRemoteService.swift */,
+				C166E7F01C033C3E00C821E6 /* URLSessionOperation.swift */,
 			);
 			path = "Remote Services";
 			sourceTree = "<group>";
@@ -206,6 +214,7 @@
 		C1966C731C01EEE500511934 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				C166E7EC1C031B4B00C821E6 /* DetailViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -332,10 +341,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C166E7ED1C031B4B00C821E6 /* DetailViewController.swift in Sources */,
+				C166E7EF1C03288100C821E6 /* SongSearchAPI.swift in Sources */,
 				C1966C741C01EEE500511934 /* MasterViewController.swift in Sources */,
 				C1966C661C01EDD400511934 /* AppAssembly.swift in Sources */,
 				C1966C5F1C01ED9C00511934 /* AppDelegate.swift in Sources */,
 				C1966C6C1C01EE9100511934 /* ItunesRemoteService.swift in Sources */,
+				C166E7F11C033C3E00C821E6 /* URLSessionOperation.swift in Sources */,
 				C1966C681C01EE6B00511934 /* AppStyle.swift in Sources */,
 				C1966C6A1C01EE7900511934 /* Song.swift in Sources */,
 				C1966C6E1C01EEA100511934 /* ImageService.swift in Sources */,

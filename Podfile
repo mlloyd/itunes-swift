@@ -3,11 +3,9 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'itunes' do
-pod 'SDWebImage'
-pod 'Alamofire'
-pod 'Swinject'
-pod 'ObjectMapper'
-#pod 'SwiftyJSON'
-pod 'XCGLogger'
+    pod 'SDWebImage'
+    pod 'Alamofire'
+    pod 'Swinject'
+    pod 'ObjectMapper'
+    pod 'XCGLogger'
 end
-

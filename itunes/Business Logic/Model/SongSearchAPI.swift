@@ -1,8 +1,8 @@
 //
-//  Song.swift
+//  SongSearchAPI.swift
 //  itunes
 //
-//  Created by Martin Lloyd on 22/11/2015.
+//  Created by Martin Lloyd on 23/11/2015.
 //  Copyright © 2015 Martin Lloyd. All rights reserved.
 //
 
@@ -11,16 +11,11 @@ import ObjectMapper
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-class Song: Mappable {
-    
-    var artistName:  String?
-    var trackName:   String?
-    var imageURL:    NSURL?
-    var albumName:   String?
-    var price:       NSNumber?
-    var releaseDate: NSDate?
-    var audioURL:    NSURL?
-    
+class SongSearchAPI: Mappable {
+
+    var count: NSNumber?
+    var songs: [Song]?
+
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
     required init?(_ map: Map){
@@ -30,12 +25,8 @@ class Song: Mappable {
     ////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////
     func mapping(map: Map) {
-        self.artistName  <- map["artistName"]
-        self.trackName   <- map["trackName"]
-        self.imageURL    <- (map["artworkUrl100"], URLTransform())
-        self.albumName   <- map["collectionName"]
-        self.price       <- map["trackPrice"]
-        self.releaseDate <- map["releaseDate"]
-        self.audioURL    <- map["previewUrl"]
+        self.count <- map["resultCount"]
+        self.songs <- map["results"]
     }
+    
 }
